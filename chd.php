@@ -5,7 +5,7 @@ $ts = $_GET['ts'] ?? '';
 if (!$ts) {
   # code...
 
-$url = "https://dlolcast.com/playurn.php?v=".$v."&secure=saskakas&expires=545452333";
+$url = "https://zplayer001.com/bcric.php?v=".$v."&secure=saskakas&expires=545452333";
 $headers = [
   "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
   "accept-language: en-US,en;q=0.9",
@@ -42,11 +42,13 @@ function lpcode($string1, $start1, $end1){
   $len1 = strpos($string1, $end1, $ini1) - $ini1;
   return substr($string1, $ini1, $len1);
    }
-   $start1='return([';
-   $end1='].join("")';
-   $oglink=lpcode($response,$start1,$end1);
-$text = str_replace(['"', ',', '\\'], '', $oglink);
-$text=str_replace('https:////','https://',$text);
+// $start1='return([';
+// $end1='].join("")';
+$start1 = "source: '";
+$end1 = "'";
+$text=lpcode($response,$start1,$end1);
+// $text = str_replace(['"', ',', '\\'], '', $text);
+// $text=str_replace('https:////','https://',$text);
 
 // echo $text;
 
@@ -74,7 +76,7 @@ curl_setopt($curl1, CURLOPT_URL, $text);
 curl_setopt($curl1, CURLOPT_RETURNTRANSFER, true);
 
 $headers1 = array(
-   "Referer: https://dlolcast.com/",
+   "Referer: https://zplayer001.com/",
 );
 curl_setopt($curl1, CURLOPT_HTTPHEADER, $headers1);
 //for debug only!
@@ -105,7 +107,7 @@ echo $g.PHP_EOL;
         $opts = array(
             'http' => array(
                 'method' => "GET",
-                'header' => "Referer: https://dlolcast.com/"
+                'header' => "Referer: https://zplayer001.com/"
             )
         );
         $context = stream_context_create($opts);
